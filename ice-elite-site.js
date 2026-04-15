@@ -20,12 +20,6 @@ export class IceEliteSite extends DDDSuper(I18NMixin(LitElement)) {
 
   constructor() {
     super();
-    this.title = "";
-    this.t = this.t || {};
-    this.t = {
-      ...this.t,
-      title: "Title",
-    };
     this.registerLocalization({
       context: this,
       localesPath:
@@ -37,8 +31,7 @@ export class IceEliteSite extends DDDSuper(I18NMixin(LitElement)) {
   // Lit reactive properties
   static get properties() {
     return {
-      ...super.properties,
-      title: { type: String },
+      ...super.properties
     };
   }
 
@@ -66,7 +59,6 @@ export class IceEliteSite extends DDDSuper(I18NMixin(LitElement)) {
   render() {
     return html`
 <div class="wrapper">
-  <h3><span>${this.t.title}:</span> ${this.title}</h3>
   <slot></slot>
 </div>`;
   }
