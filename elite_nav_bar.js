@@ -1,20 +1,10 @@
-/**
- * Copyright 2026 Khaliel Myrie
- * @license Apache-2.0, see LICENSE for full text.
- */
 import { LitElement, html, css } from "lit";
 import { DDDSuper } from "@haxtheweb/d-d-d/d-d-d.js";
 
-/**
- * `ice-elite-site`
- * 
- * @demo index.html
- * @element ice-elite-site
- */
-export class IceEliteSite extends DDDSuper(I18NMixin(LitElement)) {
+export class EliteNavBar extends DDDSuper(I18NMixin(LitElement)) {
 
   static get tag() {
-    return "ice-elite-site";
+    return "elite_nav_bar";
   }
 
   constructor() {
@@ -38,8 +28,7 @@ export class IceEliteSite extends DDDSuper(I18NMixin(LitElement)) {
   // Lit render the HTML
   render() {
     return html`
-<div class="wrapper">
-</div>`;
+        <div class="wrapper"></div>`;
   }
 
   /**
@@ -51,4 +40,4 @@ export class IceEliteSite extends DDDSuper(I18NMixin(LitElement)) {
   }
 }
 
-globalThis.customElements.define(IceEliteSite.tag, IceEliteSite);
+globalThis.customElements.define(EliteNavBar.tag, EliteNavBar);
