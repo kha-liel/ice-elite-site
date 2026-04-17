@@ -4,6 +4,8 @@
  */
 import { LitElement, html, css } from "lit";
 import { DDDSuper } from "@haxtheweb/d-d-d/d-d-d.js";
+import "./elite-nav-bar";
+import "./elite-logo";
 
 /**
  * `ice-elite-site`
@@ -38,9 +40,16 @@ export class IceEliteSite extends DDDSuper(I18NMixin(LitElement)) {
   // Lit render the HTML
   render() {
     return html`
-<div class="wrapper">
-  <elite-logo size="small"></elite-logo>
-</div>`;
+      <header>
+        <nav>
+          <div class="nav-group">
+            <a href="?page=home">Home</a>
+            <a href="?page=schedule">Schedule</a>
+          </div>
+          <elite-nav-bar></elite-nav-bar>
+          <elite-logo size="small"></elite-logo>
+        </nav>
+      </header>`;
   }
 
   /**

@@ -1,10 +1,10 @@
 import { LitElement, html, css } from "lit";
-import { DDDSuper } from "@haxtheweb/d-d-d/d-d-d.js";
+import { DDD } from "@haxtheweb/d-d-d/d-d-d.js";
 
-export class EliteNavBar extends DDDSuper(I18NMixin(LitElement)) {
+export class EliteNavBar extends DDD {
 
   static get tag() {
-    return "elite_nav_bar";
+    return "elite-nav-bar";
   }
 
   constructor() {
@@ -22,13 +22,31 @@ export class EliteNavBar extends DDDSuper(I18NMixin(LitElement)) {
   static get styles() {
     return [super.styles,
     css`
+      .navbar a:hover {
+        background-color: var(--ddd-theme-default-pughBlue);
+        color: var(--ddd-theme-default-coalyGray);
+      }
     `];
   }
 
   // Lit render the HTML
   render() {
     return html`
-        <div class="wrapper"></div>`;
+        <div>
+          <nav class="navbar">
+            <ul>
+              <li><a href="#home">Home</a></li>
+              <li><a href="#">Skater Development Tools</a></li>
+              <li><a href="#">Volunteer & Parent Requirements</a></li>
+              <li><a href="#">Membership & Registration</a></li>
+              <li><elite-logo size="small"></elite-logo></li>
+              <li><a href="#">Programs & Classes</a></li>
+              <li><a href="#">Competitors</a></li>
+              <li><a href="#">Schedule</a></li>
+              <li><a href="#">About</a></li>
+            </ul>
+          </nav>
+        </div>`;
   }
 
   /**
