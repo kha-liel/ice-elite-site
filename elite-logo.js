@@ -1,10 +1,10 @@
-import { LitElement, html, css } from "lit";
-import { DDDSuper } from "@haxtheweb/d-d-d/d-d-d.js";
+import { html, css } from "lit";
+import { DDD } from "@haxtheweb/d-d-d/d-d-d.js";
 
-export class EliteLogo extends DDDSuper(I18NMixin(LitElement)) {
+export class EliteLogo extends DDD {
 
   static get tag() {
-    return "elite_logo";
+    return "elite-logo";
   }
 
   constructor() {
@@ -29,22 +29,31 @@ export class EliteLogo extends DDDSuper(I18NMixin(LitElement)) {
         :host {
             display: inline-block;
             padding: var(--ddd-spacing-2);
+            flex-shrink: 0;
+            width: 50px;
+            height: 50px;
+        }
+
+        img {
+          width: 100%;
+          height: 100%;
+          display: block;
         }
         .logo-container {
             display: block;
             aspect-ratio: 1 / 1;
             overflow: hidden;
-            width: 100%;
-            height: auto;
+            width: var(--elite-logo-width, 100px);
+            height: var(--elite-logo-height, 100px);
             border-radius: var(--ddd-radius-circle);
             border: var(--ddd-border-sm) solid var(--ddd-theme-default-limestone);
         }
         .logo-container:hover {
             box-shadow: var(--ddd-box-shadow-sm);
         }
-        :host([size="small"]) { width: 48px; }
-        :host([size="medium"]) { width: 96px; }
-        :host([size="large"]) { width: 192px; }
+        :host([size="small"]) { width: 48px; height: 50px; }
+        :host([size="medium"]) { width: 96px; height: 100px; }
+        :host([size="large"]) { width: 192px; height: 194px; }
     `];
   }
 
@@ -53,8 +62,8 @@ export class EliteLogo extends DDDSuper(I18NMixin(LitElement)) {
     return html`
         <div class="logo-container">
             <img
-                src="${new URL('.assets/logo.png', import.meta.url).href}"
-                alt="Ice Elite Association Logo"
+                src="${new URL('./lib/assets/ice-elite-logo.png', import.meta.url).href}"
+                alt="Ice Elites Logo"
                 loading="${this.loading === 'eager' ? 'eager' : 'lazy'}"
             />
         </div>`;

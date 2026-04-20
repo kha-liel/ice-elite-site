@@ -1,10 +1,10 @@
-import { LitElement, html, css } from "lit";
-import { DDDSuper } from "@haxtheweb/d-d-d/d-d-d.js";
+import { html, css } from "lit";
+import { DDD } from "@haxtheweb/d-d-d/d-d-d.js";
 
-export class ElitePageFooter extends DDDSuper(I18NMixin(LitElement)) {
+export class ElitePageFooter extends DDD {
 
   static get tag() {
-    return "elite_page_footer";
+    return "elite-page-footer";
   }
 
   constructor() {

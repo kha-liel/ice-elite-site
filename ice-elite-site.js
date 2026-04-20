@@ -2,8 +2,8 @@
  * Copyright 2026 Khaliel Myrie
  * @license Apache-2.0, see LICENSE for full text.
  */
-import { LitElement, html, css } from "lit";
-import { DDDSuper } from "@haxtheweb/d-d-d/d-d-d.js";
+import { html, css } from "lit";
+import { DDD } from "@haxtheweb/d-d-d/d-d-d.js";
 import "./elite-nav-bar";
 import "./elite-logo";
 
@@ -13,7 +13,7 @@ import "./elite-logo";
  * @demo index.html
  * @element ice-elite-site
  */
-export class IceEliteSite extends DDDSuper(I18NMixin(LitElement)) {
+export class IceEliteSite extends DDD {
 
   static get tag() {
     return "ice-elite-site";
@@ -42,12 +42,11 @@ export class IceEliteSite extends DDDSuper(I18NMixin(LitElement)) {
     return html`
       <header>
         <nav>
-          <div class="nav-group">
+          <!--<div class="nav-group">
             <a href="?page=home">Home</a>
             <a href="?page=schedule">Schedule</a>
-          </div>
+          </div>-->
           <elite-nav-bar></elite-nav-bar>
-          <elite-logo size="small"></elite-logo>
         </nav>
       </header>`;
   }
