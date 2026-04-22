@@ -1,5 +1,6 @@
 import { html, css } from "lit";
 import { DDD } from "@haxtheweb/d-d-d/d-d-d.js";
+import "./elite-dropdown-list.js";
 import "./elite-nav-item.js";
 
 export class EliteNavBar extends DDD {
@@ -124,6 +125,12 @@ export class EliteNavBar extends DDD {
     `];
   }
 
+  render() {
+    const publicSkateItems = [
+      { title: "Dates & Times", link: "?page=dates-&-times" }
+    ]
+  }
+
   // Lit render the HTML
   render() {
     return html`
@@ -133,7 +140,7 @@ export class EliteNavBar extends DDD {
             </div>
             <ul>
               <elite-nav-item title="Home" link="?page=home"></elite-nav-item>
-              <elite-nav-item title="Public Skate" link="?page=public-skate"></elite-nav-item>
+              <elite-nav-item title="Public Skate" link="?page=public-skate" .items="${publicSkateItems}"></elite-nav-item>
               <elite-nav-item title="Learn to Skate" link="?page=learn-to-skate"></elite-nav-item>
               <elite-nav-item title="Membership & Registration" link="?page=membership"></elite-nav-item>
               <elite-nav-item title="Classes" link="?page=classes"></elite-nav-item>
