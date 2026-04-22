@@ -41,13 +41,7 @@ export class IceEliteSite extends DDD {
   render() {
     return html`
       <header>
-        <nav>
-          <!--<div class="nav-group">
-            <a href="?page=home">Home</a>
-            <a href="?page=schedule">Schedule</a>
-          </div>-->
-          <elite-nav-bar></elite-nav-bar>
-        </nav>
+        <elite-nav-bar></elite-nav-bar>
       </header>`;
   }
 

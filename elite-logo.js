@@ -30,30 +30,29 @@ export class EliteLogo extends DDD {
             display: inline-block;
             padding: var(--ddd-spacing-2);
             flex-shrink: 0;
-            width: 50px;
-            height: 50px;
+            vertical-align: middle;
         }
 
         img {
           width: 100%;
           height: 100%;
+          object-fit: contain;
           display: block;
         }
         .logo-container {
             display: block;
-            aspect-ratio: 1 / 1;
             overflow: hidden;
-            width: var(--elite-logo-width, 100px);
-            height: var(--elite-logo-height, 100px);
-            border-radius: var(--ddd-radius-circle);
+            width: 100%;
+            height: 100%;
+            border-radius: var(--ddd-radius-md);
             border: var(--ddd-border-sm) solid var(--ddd-theme-default-limestone);
         }
         .logo-container:hover {
             box-shadow: var(--ddd-box-shadow-sm);
         }
-        :host([size="small"]) { width: 48px; height: 50px; }
-        :host([size="medium"]) { width: 96px; height: 100px; }
-        :host([size="large"]) { width: 192px; height: 194px; }
+        :host([size="small"]) { width: 200px; height: 120px; }
+        :host([size="medium"]) { width: 300px; height: 240px; }
+        :host([size="large"]) { width: 400px; height: 340px; }
     `];
   }
 

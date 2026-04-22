@@ -1,11 +1,11 @@
-import { LitElement, html, css } from "lit";
-import { DDDSuper } from "@haxtheweb/d-d-d/d-d-d.js";
-import "./elite_logo.js";
+import { html, css } from "lit";
+import { DDD } from "@haxtheweb/d-d-d/d-d-d.js";
+import "./elite-logo.js";
 
-export class EliteNavItem extends DDDSuper(I18NMixin(LitElement)) {
+export class EliteNavItem extends DDD {
 
   static get tag() {
-    return "elite_nav_item";
+    return "elite-nav-item";
   }
 
   constructor() {
