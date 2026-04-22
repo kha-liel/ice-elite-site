@@ -23,46 +23,39 @@ export class EliteNavBar extends DDD {
     return [super.styles,
     css`
       :host {
-        display: block;
-        background-color: var(--ddd-theme-default-white);
-        border-bottom: var(--ddd-border-sm) solid var(--ddd-theme-default-limestone);
+        
       }
 
       .navbar {
-        width: 100%;
+        
       }
 
       .navbar ul {
-        list-style: none;
-        display: flex;
-        flex-direction: row;
-        flex-wrap: nowrap;
-        justify-content: space-between;
-        align-items: center;
-        margin: 0;
-        padding: var(--ddd-spacing-4) var(--ddd-spacing-8);
-        width: 100%;
-        //gap: var(--ddd-spacing-6);
+        
+      }
+
+      .navbar li {
+        
       }
 
       .logo-item {
-        display: flex;
-        align-items: center;
-        flex: 0 0 auto;
-        //justify-content: center;
-        padding: 0 var(--ddd-spacing-4);
+        
       }
 
       .navbar a {
-        text-decoration: none;
-        font-family: var(--ddd-font-navigation);
-        font-weight: var(--ddd-font-weigh-bold);
-        white-space: nowrap;
-        color: var(--ddd-theme-default-nittanyNavy);
+        
       }
 
       .navbar a:hover {
-        color: var(--ddd-theme-default-beaverBlue);
+
+      }
+
+      .navbar a::after {
+       
+      }
+
+      .navbar a:hover::after {
+        
       }
     `];
   }
@@ -72,18 +65,17 @@ export class EliteNavBar extends DDD {
     return html`
         <div>
           <nav class="navbar">
+            <div class="logo-container">
+              <elite-logo size="small"></elite-logo>
+            </div>
             <ul>
-              <li><a href="?home">Home</a></li>
-              <li><a href="?skater-dev-tools">Skater Development Tools</a></li>
-              <li><a href="?volunteer-parent-reqs">Volunteer & Parent Requirements</a></li>
-              <li><a href="?members-registration">Membership & Registration</a></li>
-
-              <li class="logo-item"><elite-logo size="small"></elite-logo></li>
-
-              <li><a href="?programs-classes">Programs & Classes</a></li>
-              <li><a href="?competitions">Competitions</a></li>
-              <li><a href="?schedule">Schedule</a></li>
-              <li><a href="?about">About</a></li>
+              <li><a href="?page=home">Home</a></li>
+              <li><a href="?page=learn-to-skate">Learn to Skate</a></li>
+              <li><a href="?page=membership-&-registration">Membership & Registration</a></li>
+              <li><a href="?page=classes">Classes</a></li>
+              <li><a href="?page=competitions">Competitions</a></li>
+              <li><a href="?page=schedule">Schedule</a></li>
+              <li><a href="?page=about">About</a></li>
             </ul>
           </nav>
         </div>`;
