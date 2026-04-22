@@ -1,5 +1,6 @@
 import { html, css } from "lit";
 import { DDD } from "@haxtheweb/d-d-d/d-d-d.js";
+import "./elite-nav-item.js";
 
 export class EliteNavBar extends DDD {
 
@@ -53,8 +54,9 @@ export class EliteNavBar extends DDD {
         align-items: center;
         justify-content: flex-end;
         margin: 0;
-        padding: 0;
+        padding-right: 24px;
         gap: var(--ddd-spacing-6);
+        white-space: nowrap;
       }
 
       .navbar li {
@@ -130,14 +132,13 @@ export class EliteNavBar extends DDD {
               <elite-logo size="medium"></elite-logo>
             </div>
             <ul>
-              <li><a href="?page=home">Home</a></li>
-              <li><a href="?page=public-skate">Public Skate</a></li>
-              <li><a href="?page=learn-to-skate">Learn to Skate</a></li>
-              <li><a href="?page=membership">Membership & Registration</a></li>
-              <li><a href="?page=classes">Classes</a></li>
-              <li><a href="?page=competitions">Competitions</a></li>
-              <li><a href="?page=schedule">Schedule</a></li>
-              <li><a href="?page=about">About</a></li>
+              <elite-nav-item title="Home" link="?page=home"></elite-nav-item>
+              <elite-nav-item title="Public Skate" link="?page=public-skate"></elite-nav-item>
+              <elite-nav-item title="Learn to Skate" link="?page=learn-to-skate"></elite-nav-item>
+              <elite-nav-item title="Membership & Registration" link="?page=membership"></elite-nav-item>
+              <elite-nav-item title="Classes" link="?page=classes"></elite-nav-item>
+              <elite-nav-item title="Schedule" link="?page=schedule"></elite-nav-item>
+              <elite-nav-item title="About" link="?page=about"></elite-nav-item>
             </ul>
           </nav>`;
   }
