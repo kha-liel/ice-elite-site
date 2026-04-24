@@ -125,14 +125,20 @@ export class EliteNavBar extends DDD {
     `];
   }
 
+  // Lit render the HTML
   render() {
     const publicSkateItems = [
       { title: "Dates & Times", link: "?page=dates-&-times" }
     ]
-  }
 
-  // Lit render the HTML
-  render() {
+    const learnToSkateItems = [
+      { title: "Dates & Times", link: "?page=dates-&-times" }
+    ]
+
+    const membershipItems = [
+      { title: "Register for Classes", link: "?page=course-register" },
+      {title: "Membership Pamphlet", link: "+page=membership-panphlet" }
+    ]
     return html`
           <nav class="navbar">
             <div class="logo-container">
@@ -141,8 +147,8 @@ export class EliteNavBar extends DDD {
             <ul>
               <elite-nav-item title="Home" link="?page=home"></elite-nav-item>
               <elite-nav-item title="Public Skate" link="?page=public-skate" .items="${publicSkateItems}"></elite-nav-item>
-              <elite-nav-item title="Learn to Skate" link="?page=learn-to-skate"></elite-nav-item>
-              <elite-nav-item title="Membership & Registration" link="?page=membership"></elite-nav-item>
+              <elite-nav-item title="Learn to Skate" link="?page=learn-to-skate" .items="${learnToSkateItems}"></elite-nav-item>
+              <elite-nav-item title="Membership & Registration" link="?page=membership" .items="${membershipItems}"></elite-nav-item>
               <elite-nav-item title="Classes" link="?page=classes"></elite-nav-item>
               <elite-nav-item title="Schedule" link="?page=schedule"></elite-nav-item>
               <elite-nav-item title="About" link="?page=about"></elite-nav-item>
