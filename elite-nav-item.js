@@ -13,6 +13,7 @@ export class EliteNavItem extends DDD {
     this.link = "#";
     this.opened = false;
     this.items = [];
+    this.menuOpen = false;
   }
 
   // Lit reactive properties
@@ -22,7 +23,8 @@ export class EliteNavItem extends DDD {
       title: { type: String },
       link: { type: String },
       opened: { type: Boolean, reflect: true },
-      items: { type: Array }
+      items: { type: Array },
+      manuOpen: { type: Boolean, state: true }
     };
   }
 
@@ -35,7 +37,7 @@ export class EliteNavItem extends DDD {
       display: flex;
       align-items: center;
       gap: var(--ddd-spacing-2);
-      padding: var(--ddd-spscing-2) 0;
+      padding: 0 var(--ddd-spscing-2);
     }
 
     .chevron {
@@ -63,7 +65,7 @@ export class EliteNavItem extends DDD {
       text-decoration: none;
       font-family: var(--ddd-font-navigation);
       font-weight: var(--ddd-font-weight-bold);
-      font-size: var(--ddd-font-size-m);
+      font-size: var(--ddd-font-size-xs);
       color: var(--ddd-theme-default-wonderPurple);
     }
     `];

@@ -50,9 +50,9 @@ export class EliteLogo extends DDD {
         .logo-container:hover {
             box-shadow: var(--ddd-box-shadow-sm);
         }
-        :host([size="small"]) { width: 200px; height: 120px; }
-        :host([size="medium"]) { width: 300px; height: 240px; }
-        :host([size="large"]) { width: 400px; height: 340px; }
+        :host([size="small"]) { width: 300px; height: 100px; }
+        :host([size="medium"]) { width: 400px; height: 133px; }
+        :host([size="large"]) { width: 500px; height: 167px; }
     `];
   }
 
