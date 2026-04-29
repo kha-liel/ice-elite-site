@@ -104,6 +104,7 @@ export class EliteNavBar extends DDD {
         position: relative;
         display: block;
         transition: all 0.3s ease-in-out;
+        user-select: none;
       }
 
       .hamburger-icon::before, .hamburger-icon::after {
