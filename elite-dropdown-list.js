@@ -59,6 +59,21 @@ export class EliteDropdownList extends DDD {
       color: var(--ddd-theme-default-beaverBlue);
       text-decoration: none;
     }
+
+    @media (max-wdith: 1125px) {
+      ul {
+        display: none;
+        flex-direction: column;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        background-color: var(--ddd-theme-default-infoLight);
+      }
+      :host([menu-open]) ul {
+        display: flex;
+      }
+    }
     `];
   }
 

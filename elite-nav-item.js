@@ -9,11 +9,8 @@ export class EliteNavItem extends DDD {
 
   constructor() {
     super();
-    this.title = "";
-    this.link = "#";
-    this.opened = false;
+    this.isOpen = false;
     this.items = [];
-    this.menuOpen = false;
   }
 
   // Lit reactive properties
@@ -22,67 +19,78 @@ export class EliteNavItem extends DDD {
       ...super.properties,
       title: { type: String },
       link: { type: String },
-      opened: { type: Boolean, reflect: true },
-      items: { type: Array },
-      manuOpen: { type: Boolean, state: true }
+      isOpen: { type: Boolean, reflect: true },
+      items: { type: Array }
     };
+  }
+
+  toggleDropdown(e) {
+    if (this.items && this.items.length > 0) {
+      e.preventDefault();
+      this.isOpen = !this.isOpen;
+    }
   }
 
   // Lit scoped styles
   static get styles() {
     return [super.styles,
     css`
-    
-    .item-wrapper {
-      display: flex;
-      align-items: center;
-      gap: var(--ddd-spacing-2);
-      padding: 0 var(--ddd-spscing-2);
-    }
-
-    .chevron {
-      display: inline-block;
-      width: 6px;
-      height: 6px;
-      border-right: 2px solid var(--ddd-theme-default-beaverBlue);
-      border-bottom: 2px solid var(--ddd-theme-default-beaverBlue);
-      transform: rotate()(45deg);
-      margin-left: 4px;
-      margin-top: -4px;
-    }
-
-    :host(:hover) .chevron {
-      transform: rotate (-135deg);
-      margin-top: 2px;
-    }
-
-    :host(:hover) a {
-      text-decoration: none;
-      color: var(--ddd-theme-default-athertonViolet);
-    }
-
-    a {
-      text-decoration: none;
-      font-family: var(--ddd-font-navigation);
-      font-weight: var(--ddd-font-weight-bold);
-      font-size: var(--ddd-font-size-xs);
-      color: var(--ddd-theme-default-wonderPurple);
-    }
+      :host { 
+        display: block;
+        position: relative;
+      }
+      .item-container {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        color: var(--ddd-theme-default-wonderPurple);
+        font-weight: bold;
+        text-decoration: none;
+      }
+      .item-container:hover {
+        text-decoration: none;
+        color: var(--ddd-theme-default-athertonViolet);
+      }
+      .arrow {
+        width: 0;
+        height: 0;
+        border-left: 5px solid transparent;
+        border-right: 5px solid transparent;
+        border-top: 5px solid var(--ddd-theme-default-nittanyNavy);
+        transition: transform 0.3s ease;
+      }
+      :host([is-open]) .arrow {
+        transform: rotate(180deg);
+      }
+      .dropdown-slot {
+        display: none;
+        background-color: var(--ddd-theme-default-infoLight);
+        padding-left: 16px;
+      }
+      :host([is-open]) .dropdown-slot {
+        display: block;
+      }
+      .sub-item {
+        display: block;
+        font-size: 14px;
+        padding: 8px 0;
+        text-decoration: none;
+        color: var(--ddd-theme-default-nittanyNavy);
+      }
     `];
   }
 
   // Lit render the HTML
   render() {
     return html`
-        <div class="item-wrapper">
-          <a href="${this.link}">${this.title}</a>
-
-          ${this.items && this.items.length > 0 ? html`
-          <span class="chevron"></span>` : ""}
+        <a class="item-container" href="${this.link}" @click="${this.toggleDropdown}">
+          <span>${this.title}</span>
+          ${this.items?.length > 0 ? html`<span class="arrow"></span>` : ''}</a>
+        </a>
+        <div class="dropdown-slot">
+          ${this.items?.map(sub => html`
+            <a class="sub-item" href="${sub.link}">${sub.title}</a>}`)}
         </div>
-        
-        ${this.items && this.items.length > 0 ? html `
-        <elite-dropdown-list .items="${this.items}"></elite-dropdown-list>` : ""}
         `;
   }
 

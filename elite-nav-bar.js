@@ -30,10 +30,9 @@ export class EliteNavBar extends DDD {
         display: block;
         background-color: var(--ddd-theme-default-infoLight);
         border-bottom: var(--ddd-border-sm) solid var(--ddd-theme-default-limestone);
-        //padding: var(--ddd-spacing-4) var(--ddd-spacing-12);
+        padding: 0;
+        min-width: max-content;
         position: sticky;
-        top: 0;
-        z-index: 100;
         width: 100%;
         box-sizing: border-box;
       }
@@ -45,7 +44,6 @@ export class EliteNavBar extends DDD {
         max-width: 100%;
         margin: 0 auto;
         width: 100%;
-        //padding: 0 var(--ddd-spacing-12);
         box-sizing: border-box;
       }
 
@@ -70,7 +68,7 @@ export class EliteNavBar extends DDD {
         align-items: center;
       }
 
-      .navbar a:hover {
+      .navbar ul:hover {
         color: var(--ddd-theme-default-athertonViolet);
       }
 
@@ -139,16 +137,13 @@ export class EliteNavBar extends DDD {
       }
 
       @media (max-width: 1200px) {
-        :host {
-          padding: var(--ddd-spacing-4) var(--ddd-spacing-6);
-        }
         .navbar ul {
           gap: var(--ddd-spacing-2);
           --elite-nav-font-size: var(--ddd-font-size-4xs);
         }
       }
 
-      @media (max-width: 900px) {
+      @media (max-width: 1125px) {
         .menu-toggle {
           display: block;
           margin-left: auto;
@@ -178,6 +173,8 @@ export class EliteNavBar extends DDD {
 
         :host {
           overflow: visible;
+          width: 100%;
+          min-width: 100%;
         }
 
         :host([menu-open]) .navbar ul {
