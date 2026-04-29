@@ -24,82 +24,87 @@ export class EliteNavItem extends DDD {
     };
   }
 
-  toggleDropdown(e) {
-    if (this.items && this.items.length > 0) {
-      e.preventDefault();
-      this.isOpen = !this.isOpen;
-    }
-  }
-
   // Lit scoped styles
   static get styles() {
-    return [super.styles,
-    css`
-      :host { 
+    return css`
+      :host {
         display: block;
         position: relative;
       }
-      .item-container {
+
+      .item-main {
         display: flex;
         align-items: center;
         gap: 8px;
-        color: var(--ddd-theme-default-wonderPurple);
-        font-weight: bold;
-        text-decoration: none;
-      }
-      .item-container:hover {
-        text-decoration: none;
-        color: var(--ddd-theme-default-athertonViolet);
-      }
-      .arrow {
-        width: 0;
-        height: 0;
-        border-left: 5px solid transparent;
-        border-right: 5px solid transparent;
-        border-top: 5px solid var(--ddd-theme-default-nittanyNavy);
-        transition: transform 0.3s ease;
-      }
-      :host([is-open]) .arrow {
-        transform: rotate(180deg);
-      }
-      .dropdown-slot {
-        display: none;
-        background-color: var(--ddd-theme-default-infoLight);
-        padding-left: 16px;
-      }
-      :host([is-open]) .dropdown-slot {
-        display: block;
-      }
-      .sub-item {
-        display: block;
-        font-size: 14px;
-        padding: 8px 0;
         text-decoration: none;
         color: var(--ddd-theme-default-nittanyNavy);
+        font-weight: bold;
+        cursor: pointer;
+        padding: 10px 0;
+        white-space: nowrap;
       }
-    `];
+
+      .arrow {
+        width: 0; height: 0; 
+        border-left: 5px solid transparent;
+        border-right: 5px solid transparent;
+        border-top: 6px solid var(--ddd-theme-default-nittanyNavy);
+        transition: transform 0.3s ease;
+      }
+
+      .item-main[aria-expanded="true"] .arrow {
+        transform: rotate(180deg);
+      }
+
+      .sub-menu {
+        display: none;
+        position: absolute; 
+        top: 100%;
+        left: 0;
+        background: var(--ddd-theme-default-infoLight);
+        min-width: 220px;
+        box-shadow: var(--ddd-box-shadow-md);
+        z-index: 1000;
+        flex-direction: column;
+        padding: 10px 0;
+        border: 1px solid var(--ddd-theme-default-limestone);
+      }
+
+      .item-main[aria-expanded="true"] + .sub-menu {
+        display: flex;
+      }
+
+      .sub-link {
+        padding: 8px 20px;
+        text-decoration: none;
+        color: var(--ddd-theme-default-nittanyNavy);
+        font-size: 14px;
+      }
+
+      @media (max-width: 1125px) {
+        .sub-menu {
+          position: static;
+          box-shadow: none;
+          border: none;
+          //padding-left: 20px;
+        }
+      }
+    `;
   }
 
-  // Lit render the HTML
   render() {
+    const hasItems = this.items && this.items.length > 0;
     return html`
-        <a class="item-container" href="${this.link}" @click="${this.toggleDropdown}">
-          <span>${this.title}</span>
-          ${this.items?.length > 0 ? html`<span class="arrow"></span>` : ''}</a>
-        </a>
-        <div class="dropdown-slot">
-          ${this.items?.map(sub => html`
-            <a class="sub-item" href="${sub.link}">${sub.title}</a>}`)}
-        </div>
-        `;
-  }
-
-  /**
-   * haxProperties integration via file reference
-   */
-  static get haxProperties() {
-    return new URL(`./lib/${this.tag}.haxProperties.json`, import.meta.url)
-      .href;
+      <a class="item-main" href="${this.link}" @click="${(e) => {
+        if(hasItems) { e.preventDefault(); this.isOpen = !this.isOpen; }
+      }}" aria-expanded="${this.isOpen}">
+        ${this.title}
+        ${hasItems ? html`<span class="arrow"></span>` : ''}
+      </a>
+      <div class="sub-menu">
+        ${this.items?.map(i => html`<a class="sub-link" href="${i.link}">${i.title}</a>`)}
+      </div>
+    `;
   }
 }
 

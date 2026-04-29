@@ -25,58 +25,43 @@ export class EliteDropdownList extends DDD {
 
   // Lit scoped styles
   static get styles() {
-    return [super.styles,
-    css`
-
-    ul {
-      list-style: none;
-      padding: 0;
-      margin: 0;
-      display: flex;
-      flex-direction: row;
-      gap: 20px;
-    }
-
-    elite-nav-item { position: relative; }
-
-    @media (max-wdith: 1125px) {
+    return css`
       ul {
-        display: none;
-        flex-direction: column;
-        //position: absolute;
-        //top: 100%;
-        //left: 0;
-        width: 100%;
-        background-color: var(--ddd-theme-default-infoLight);
-      }
-      :host([menu-open]) ul {
+        list-style: none;
+        margin: 0;
+        padding: 0;
         display: flex;
+        flex-direction: row;
+        gap: var(--ddd-spacing-6);
       }
-    }
-    `];
+
+      @media (max-width: 1125px) {
+        ul {
+          display: none;
+          flex-direction: column;
+          position: absolute;
+          top: 100%;
+          left: 0;
+          width: 100%;
+          background: var(--ddd-theme-default-infoLight);
+          padding: var(--ddd-spacing-4);
+          box-shadow: var(--ddd-box-shadow-md);
+        }
+        :host([menu-open]) ul {
+          display: flex;
+        }
+      }
+    `;
   }
 
-  // Lit render the HTML
   render() {
     return html`
-        <ul>
-          ${this.menuItems.map(item => html`
-            <li>
-              <elite-nav-item
-                .title="${item.title}"
-                .link="${item.link}"
-                .items="${item.items}">
-              </elite-nav-item>
-            </li>`)}
-        </ul>>`;
-  }
-
-  /**
-   * haxProperties integration via file reference
-   */
-  static get haxProperties() {
-    return new URL(`./lib/${this.tag}.haxProperties.json`, import.meta.url)
-      .href;
+      <ul>
+        ${this.menuItems.map(item => html`
+          <elite-nav-item .title="${item.title}" .link="${item.link}" .items="${item.items}"></elite-nav-item>
+        `)}
+      </ul>
+    `;
   }
 }
 

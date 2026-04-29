@@ -13,91 +13,35 @@ export class EliteNavBar extends DDD {
     super();
     this.menuOpen = false;
     this.menuItems = [
-      { title: 'Home',
-        link: '/'
-      },
-      { title: 'Public Skate',
-        link: '/public-skate',
+      { title: 'Home', link: '/'},
+      { title: 'Public Skate', link: '/public-skate',
+        items: [{ title: 'Dates & Times', link: '/public-skate/dates-and-times'}]},
+      { title: 'Learn to Skate', link: '/learn-to-skate',
         items: [
-          { title: 'Dates & Times',
-            link: '/public-skate/dates-and-times'
-          }
-        ]
-      },
-      { title: 'Learn to Skate',
-        link: '/learn-to-skate',
+          { title: 'Preschool (Ages 3-5)', link: '/learn-to-skate/preschool'},
+          { title: 'Youth (Ages 6-12)', link: '/learn-to-skate/youth'},
+          { title: 'Teen & Adult', link: '/learn-to-skate/teen-and-adult'},
+          { title: 'Private Lessons', link: '/learn-to-skate/private-lessons'}]},
+      { title: 'Classes', link: '/classes',
         items: [
-          { title: 'Preschool (Ages 3-5)',
-            link: '/learn-to-skate/preschool'
-          },
-          { title: 'Youth (Ages 6-12)',
-            link: '/learn-to-skate/youth'
-          },
-          { title: 'Teen & Adult',
-            link: '/learn-to-skate/teen-and-adult'
-          },
-          { title: 'Private Lessons',
-            link: '/learn-to-skate/private-lessons'
-          }
-        ]
-      },
-      { title: 'Classes',
-        link: '/classes',
+          { title: 'Figure Skating Basics', link: '/classes/figure-skating-basics'},
+          { title: 'Hockey Skills', link: '/classes/hockey-skills'},
+          { title: 'Off-Ice Training', link: '/classes/off-ice-training'},
+          { title: 'Bridge Program', link: '/classes/bridge-program'}]},
+      { title: 'Membership & Registration', link: '/membership',
         items: [
-          { title: 'Figure Skating Basics',
-            link: '/classes/figure-skating-basics'
-          },
-          { title: 'Hockey Skills',
-            link: '/classes/hockey-skills'
-          },
-          { title: 'Off-Ice Training',
-            link: '/classes/off-ice-training'
-          },
-          { title: 'Bridge Program',
-            link: '/classes/bridge-program'
-          }
-        ]
-      },
-      { title: 'Membership & Registration',
-        link: '/membership',
+          { title: 'League Regsitration', link: '.membership/league-registration'},
+          { title: 'Membership Tiers/Benefits', link: '/membership/tiers-and-benefits'},
+          { title: 'Waivers & Documents', link: '/membership/waivers-and-documents'},
+          { title: 'Scholarship Information', link: '/membership/scholarship-information'}]},
+      { title: 'Schedule', link: '/schedule'},
+      { title: 'About', link: '/about',
         items: [
-          { title: 'Leage Regsitration',
-            link: '.membership/league-registration'
-          },
-          { title: 'Membership Tiers/Benefits',
-            link: '/membership/tiers-and-benefits'
-          },
-          { title: 'Waivers & Documents',
-            link: '/membership/waivers-and-documents'
-          },
-          { title: 'Scholarship Information',
-            link: '/membership/scholarship-information'
-          }
-        ]
-      },
-      { title: 'Schedule',
-        link: '/schedule'
-      },
-      { title: 'About',
-        link: '/about',
-        items: [
-          { title: 'Our Coaches',
-            link: '/about/coaches'
-          },
-          { title: 'Competitions and Programs',
-            link: '/about/competitions'
-          },
-          { title: 'Rink Location & Directions',
-            link: '/about/rink-location'
-          },
-          { title: 'Safety & SafeSprot Policies',
-            link: '/about/safety'
-          },
-          { title: 'Contact Us',
-            link: '/about/contact-us'
-          }
-        ]
-      }
+          { title: 'Our Coaches', link: '/about/coaches'},
+          { title: 'Competitions and Programs', link: '/about/competitions'},
+          { title: 'Rink Location & Directions', link: '/about/rink-location'},
+          { title: 'Safety & SafeSprot Policies', link: '/about/safety'},
+          { title: 'Contact Us', link: '/about/contact-us'}]}
     ];
   }
 
@@ -117,69 +61,27 @@ export class EliteNavBar extends DDD {
         display: block;
         background-color: var(--ddd-theme-default-infoLight);
         border-bottom: var(--ddd-border-sm) solid var(--ddd-theme-default-limestone);
-        padding: 0;
-        min-width: max-content;
         position: sticky;
+        top: 0;
         width: 100%;
-        box-sizing: border-box;
+        z-index: 1000;
       }
 
       .navbar {
         display: flex;
         align-items: center;
-        justify-content: flex-start;
-        max-width: 100%;
-        margin: 0 auto;
-        width: 100%;
-        box-sizing: border-box;
-      }
-
-      .navbar ul {
-        --elite-nav-font-size: var(--ddd-font-size-xs);
-        list-style: none;
-        display: flex;
-        flex-direction: row;
-        flex-wrap: nowrap;
-        flex: 1;
-        align-items: center;
-        justify-content: flex-end;
-        margin: 0;
-        padding-right: 24px;
-        gap: var(--ddd-spacing-4);
-        white-space: nowrap;
-      }
-
-      .navbar li {
+        justify-content: space-between;
+        padding: 0 var(--ddd-spacing-4);
+        height: 100px;
         position: relative;
-        display: flex;
-        align-items: center;
-      }
-
-      .navbar a:hover {
-        color: var(--ddd-theme-default-athertonViolet);
-      }
-
-      .navbar li elite-dropdown-list {
-        position: absolute;
-        top: 100%;
-        left: 0;
-        z-index: 100;
-      }
-
-      .logo-container {
-        display: flex;
-        align-items: center;
-        max-height: 167px;
-        flex: 0 1 auto;
-        min-width: fit-content;
-        justify-content: flex-start;
+        box-sizing: border-box;
       }
 
       .menu-toggle {
         display: none;
         background: none;
         border: none;
-        padding: var(--ddd-spacing-2);
+        cursor: pointer;
       }
 
       .hamburger-icon {
@@ -189,7 +91,6 @@ export class EliteNavBar extends DDD {
         position: relative;
         display: block;
         transition: all 0.3s ease-in-out;
-        user-select: none;
       }
 
       .hamburger-icon::before, .hamburger-icon::after {
@@ -223,89 +124,28 @@ export class EliteNavBar extends DDD {
         bottom: -1px;
       }
 
-      @media (max-width: 1200px) {
-        .navbar ul {
-          gap: var(--ddd-spacing-2);
-          --elite-nav-font-size: var(--ddd-font-size-4xs);
-        }
-      }
-
       @media (max-width: 1125px) {
         .menu-toggle {
           display: block;
-          margin-left: auto;
-          height: 100%;
-        }
-        .logo-container {
-          width: 100%;
-          justify-content: left;
-        }
-        .navbar ul {
-          display: none;
-          flex-direction: column;
-          justify-content: flex-start;
-          min-height: 200px;
-          position: absolute;
-          height: auto;
-          top: 100%;
-          left: 0;
-          width: 100%;
-          background-color: var(--ddd-theme-default-infoLight);
-          z-index: 9999;
-          border-bottom: var(--ddd-border-sm);
-          padding: var(--ddd-spacing-4);
-          margin: 0;
-          box-shadow: var(--ddd-box-shadow-md);
-        }
-
-        :host {
-          overflow: visible;
-          width: 100%;
-          min-width: 100%;
-        }
-
-        :host([menu-open]) .navbar ul {
-          display: flex;
-          visibility: visible;
-          opacity: 1;
         }
       }
     `];
   }
 
-
   toggleMenu() {
     this.menuOpen = !this.menuOpen;
   }
 
-  // Lit render the HTML
   render() {
     return html`
-          <nav class="navbar">
-            <div class="logo-container">
-              <elite-logo size="small"></elite-logo>
-            </div>
-            <button class="menu-toggle" @click="${this.toggleMenu}">
-              <span class="hamburger-icon"></span>
-            </button>
-            <ul>
-              <elite-nav-item title="Home" link="?page=home"></elite-nav-item>
-              <elite-nav-item title="Public Skate" link="?page=public-skate"></elite-nav-item>
-              <elite-nav-item title="Learn to Skate" link="?page=learn-to-skate"></elite-nav-item>
-              <elite-nav-item title="Membership & Registration" link="?page=membership"></elite-nav-item>
-              <elite-nav-item title="Classes" link="?page=classes"></elite-nav-item>
-              <elite-nav-item title="Schedule" link="?page=schedule"></elite-nav-item>
-              <elite-nav-item title="About" link="?page=about"></elite-nav-item>
-            </ul>
-          </nav>`;
-  }
-
-  /**
-   * haxProperties integration via file reference
-   */
-  static get haxProperties() {
-    return new URL(`./lib/${this.tag}.haxProperties.json`, import.meta.url)
-      .href;
+      <nav class="navbar">
+        <elite-logo size="small"></elite-logo>
+        <elite-dropdown-list .menuItems="${this.menuItems}" ?menu-open="${this.menuOpen}"></elite-dropdown-list>
+        <div class="menu-toggle" @click="${this.toggleMenu}">
+          <span class="hamburger-icon"></span>
+        </div>
+      </nav>
+    `;
   }
 }
 
