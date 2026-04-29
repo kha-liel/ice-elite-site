@@ -1,5 +1,6 @@
 import { html, css } from "lit";
 import { DDD } from "@haxtheweb/d-d-d/d-d-d.js";
+import "./elite-nav-item.js";
 
 export class EliteDropdownList extends DDD {
 
@@ -7,6 +8,7 @@ export class EliteDropdownList extends DDD {
     return "elite-dropdown-list";
   }
 
+  // might not need
   constructor() {
     super();
     this.items = [];
@@ -16,7 +18,8 @@ export class EliteDropdownList extends DDD {
   static get properties() {
     return {
       ...super.properties,
-      items: { type: Array }
+      menuItems: { type: Array },
+      menuOpen: { type: Boolean, attribute: "menu-open", reflect: true }
     };
   }
 
@@ -25,48 +28,24 @@ export class EliteDropdownList extends DDD {
     return [super.styles,
     css`
 
-    :host {
-      display: block;
-      background-color: var(--ddd-theme-default-white);
-      min-width: 220px;
-      border: var(--ddd-border-sm) solid var(--ddd-theme-default-limestone);
-      box-shadow: var(--ddd-box-shadow-md);
-      padding: var(--ddd-spacing-2) 0;
-    }
-
     ul {
       list-style: none;
       padding: 0;
       margin: 0;
+      display: flex;
+      flex-direction: row;
+      gap: 20px;
     }
 
-    li {
-      width: 100%;
-    }
-
-    a {
-      display: block;
-      padding: var(--ddd-spacing-3) var(--ddd-spacing-6);
-      text-decoration: none;
-      font-family: var(--ddd-font-navigation);
-      font-size: var(--ddd-font-size-xs);
-      font-weight: var(--ddd-font-weight-regular);
-      color: var(--ddd-theme-default-nittanyNavy);
-    }
-
-    a :hover {
-      background-color: var(--ddd-theme-default-limestone);
-      color: var(--ddd-theme-default-beaverBlue);
-      text-decoration: none;
-    }
+    elite-nav-item { position: relative; }
 
     @media (max-wdith: 1125px) {
       ul {
         display: none;
         flex-direction: column;
-        position: absolute;
-        top: 100%;
-        left: 0;
+        //position: absolute;
+        //top: 100%;
+        //left: 0;
         width: 100%;
         background-color: var(--ddd-theme-default-infoLight);
       }
@@ -81,9 +60,13 @@ export class EliteDropdownList extends DDD {
   render() {
     return html`
         <ul>
-          ${this.items.map(item => html`
+          ${this.menuItems.map(item => html`
             <li>
-              <a href="${item.link || '#'}">${item.title || item}</a>
+              <elite-nav-item
+                .title="${item.title}"
+                .link="${item.link}"
+                .items="${item.items}">
+              </elite-nav-item>
             </li>`)}
         </ul>>`;
   }

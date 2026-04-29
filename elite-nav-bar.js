@@ -12,6 +12,93 @@ export class EliteNavBar extends DDD {
   constructor() {
     super();
     this.menuOpen = false;
+    this.menuItems = [
+      { title: 'Home',
+        link: '/'
+      },
+      { title: 'Public Skate',
+        link: '/public-skate',
+        items: [
+          { title: 'Dates & Times',
+            link: '/public-skate/dates-and-times'
+          }
+        ]
+      },
+      { title: 'Learn to Skate',
+        link: '/learn-to-skate',
+        items: [
+          { title: 'Preschool (Ages 3-5)',
+            link: '/learn-to-skate/preschool'
+          },
+          { title: 'Youth (Ages 6-12)',
+            link: '/learn-to-skate/youth'
+          },
+          { title: 'Teen & Adult',
+            link: '/learn-to-skate/teen-and-adult'
+          },
+          { title: 'Private Lessons',
+            link: '/learn-to-skate/private-lessons'
+          }
+        ]
+      },
+      { title: 'Classes',
+        link: '/classes',
+        items: [
+          { title: 'Figure Skating Basics',
+            link: '/classes/figure-skating-basics'
+          },
+          { title: 'Hockey Skills',
+            link: '/classes/hockey-skills'
+          },
+          { title: 'Off-Ice Training',
+            link: '/classes/off-ice-training'
+          },
+          { title: 'Bridge Program',
+            link: '/classes/bridge-program'
+          }
+        ]
+      },
+      { title: 'Membership & Registration',
+        link: '/membership',
+        items: [
+          { title: 'Leage Regsitration',
+            link: '.membership/league-registration'
+          },
+          { title: 'Membership Tiers/Benefits',
+            link: '/membership/tiers-and-benefits'
+          },
+          { title: 'Waivers & Documents',
+            link: '/membership/waivers-and-documents'
+          },
+          { title: 'Scholarship Information',
+            link: '/membership/scholarship-information'
+          }
+        ]
+      },
+      { title: 'Schedule',
+        link: '/schedule'
+      },
+      { title: 'About',
+        link: '/about',
+        items: [
+          { title: 'Our Coaches',
+            link: '/about/coaches'
+          },
+          { title: 'Competitions and Programs',
+            link: '/about/competitions'
+          },
+          { title: 'Rink Location & Directions',
+            link: '/about/rink-location'
+          },
+          { title: 'Safety & SafeSprot Policies',
+            link: '/about/safety'
+          },
+          { title: 'Contact Us',
+            link: '/about/contact-us'
+          }
+        ]
+      }
+    ];
   }
 
   // Lit reactive properties
@@ -68,7 +155,7 @@ export class EliteNavBar extends DDD {
         align-items: center;
       }
 
-      .navbar ul:hover {
+      .navbar a:hover {
         color: var(--ddd-theme-default-athertonViolet);
       }
 
