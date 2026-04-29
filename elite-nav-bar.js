@@ -113,20 +113,28 @@ export class EliteNavBar extends DDD {
         background-color: var(--ddd-theme-default-nittanyNavy);
         position: absolute;
         left: 0;
+        transform-origin: right center;
         transition: all 0.3s ease-in-out;
       }
 
       .hamburger-icon::before { top: -8px; }
       .hamburger-icon::after { bottom: -8px; }
 
+      :host([menu-open]) .hamburger-icon {
+        background-color: transparent;
+        transform: rotate(90deg);
+      }
+
       :host([menu-open]) .hamburger-icon::before {
-        transform: rotate(45deg) translate(5px, 5px);
+        transform: rotate(-45deg);
         width: 20px;
+        top: -1px;
       }
 
       :host([menu-open]) .hamburger-icon::after {
-        transform: rotate(45deg) translate(5px, -5px);
+        transform: rotate(45deg);
         width: 20px;
+        bottom: -1px;
       }
 
       @media (max-width: 1200px) {
