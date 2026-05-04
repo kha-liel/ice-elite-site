@@ -24,12 +24,21 @@ export class IceEliteSite extends DDD {
 
   constructor() {
     super();
+    this.activePage = 'home';
+    window.addEventListener('popstate', () => this._handleRouteChange());
+    this._handleRouteChange();
+  }
+
+  _handleRouteChange() {
+    const path = window.location.pathname.replace('/', '');
+    this.activePage = path || 'home';
   }
 
   // Lit reactive properties
   static get properties() {
     return {
-      ...super.properties
+      ...super.properties,
+      activePage: { type: String }
     };
   }
 
@@ -45,9 +54,16 @@ export class IceEliteSite extends DDD {
     return html`
       <header>
         <elite-page-header></elite-page-header>
-        <elite-page-content></elite-page-content>
+        <elite-page-content>${this._renderActivePage()}</elite-page-content>
         <elite-page-footer></elite-page-footer>
       </header>`;
+  }
+
+  _renderActivePage() {
+    switch (this.activePage) {
+      case 'schedule':
+        return html``
+    }
   }
 
   /**
