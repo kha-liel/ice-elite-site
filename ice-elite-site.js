@@ -5,6 +5,9 @@
 import { html, css } from "lit";
 import { DDD } from "@haxtheweb/d-d-d/d-d-d.js";
 import "./elite-nav-bar";
+import "./elite-page-header.js";
+import "./elite-page-content.js";
+import "./elite-page-footer.js";
 import "./elite-logo";
 
 /**
@@ -41,7 +44,9 @@ export class IceEliteSite extends DDD {
   render() {
     return html`
       <header>
-        <elite-nav-bar></elite-nav-bar>
+        <elite-page-header></elite-page-header>
+        <elite-page-content></elite-page-content>
+        <elite-page-footer></elite-page-footer>
       </header>`;
   }
 
