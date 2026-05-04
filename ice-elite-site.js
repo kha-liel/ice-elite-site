@@ -7,6 +7,9 @@ import { DDD } from "@haxtheweb/d-d-d/d-d-d.js";
 import "./elite-nav-bar";
 import "./elite-page-header.js";
 import "./elite-page-content.js";
+import "/elite-schedule-page.js";
+import "./elite-coaches-page.js";
+import "./elite-dates-page.js";
 import "./elite-page-footer.js";
 import "./elite-logo";
 
@@ -30,8 +33,19 @@ export class IceEliteSite extends DDD {
   }
 
   _handleRouteChange() {
-    const path = window.location.pathname.replace('/', '');
-    this.activePage = path || 'home';
+    const path = window.location.pathname;
+    //this.activePage = path || 'home';
+    if (path.endsWith('/schedule')) {
+      this.activePage = 'schedule';
+    } else if (path.includes('/coaches')) { 
+      this.activePage = 'coaches';
+    } else if (path.includes('/dates-and-times')) {
+      this.activePage = 'dates';
+    } else {
+      this.activePage = 'home';
+    }
+
+    this.requestUpdate();
   }
 
   // Lit reactive properties
@@ -54,15 +68,24 @@ export class IceEliteSite extends DDD {
     return html`
       <header>
         <elite-page-header></elite-page-header>
-        <elite-page-content>${this._renderActivePage()}</elite-page-content>
+      </header>
+      <main>
+        <elite-page-content>
+          ${this._renderActivePage()}
+        </elite-page-content>
+      </main>
         <elite-page-footer></elite-page-footer>
-      </header>`;
+      `;
   }
 
   _renderActivePage() {
     switch (this.activePage) {
       case 'schedule':
-        return html``
+        return html`<elite-schedule-page></elite-schedule-page>`;
+      case 'coaches':
+        return html`<elite-coaches-page></elite-coaches-page>`;
+      case 'dates':
+        return html`<elite-dates-page></elite-dates-page>`;
     }
   }
 

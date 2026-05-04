@@ -90,11 +90,6 @@ export class EliteNavItem extends DDD {
         display: flex;
       }
 
-      :host([right-aligned]) .sub-menu {
-        left: auto;
-        right: 0;
-      }
-
       .sub-link {
         padding: 8px 20px;
         text-decoration: none;
@@ -143,18 +138,26 @@ export class EliteNavItem extends DDD {
   }
 
   _handleLinkClick(e) {
+    const link = e.currentTarget.getAttribute('href');
     const hasItems = this.items && this.items.length > 0;
-    const isExternal = this.link.startsWith('http');
-
-    if (hasItems) {
+    
+    if (hasItems && e.currentTarget.classList.contains('item-main')) {
       e.preventDefault();
-      return;
+      e.stopPropagation(); 
+      this.isOpen = !this.isOpen;
+      return; 
     }
 
-    if (!isExternal) {
+    const isExternal = link && link.startsWith('http');
+
+    if (link && !isExternal) {
       e.preventDefault();
-      window.history.pushState({}, '', this.link);
+      e.stopPropagation();
+      
+      window.history.pushState({}, '', link);
       window.dispatchEvent(new PopStateEvent('popstate'));
+      
+      this.isOpen = false;
     }
   }
 
@@ -166,7 +169,8 @@ export class EliteNavItem extends DDD {
         ${hasItems ? html`<span class="arrow"></span>` : ''}
       </a>
       <div class="sub-menu">
-        ${this.items?.map(i => html`<a class="sub-link" href="${i.link}">${i.title}</a>`)}
+        ${this.items?.map(i => html`
+          <a class="sub-link" href="${i.link}" @click="${this._handleLinkClick}">${i.title}</a>`)}
       </div>
     `;
   }
