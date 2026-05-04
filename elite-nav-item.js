@@ -134,11 +134,26 @@ export class EliteNavItem extends DDD {
     `;
   }
 
+  _handleLinkClick(e) {
+    const hasItems = this.items && this.items.length > 0;
+    const isExternal = this.link.startsWith('http');
+
+    if (hasItems) {
+      e.preventDefault();
+      return;
+    }
+
+    if (!isExternal) {
+      e.preventDefault();
+      window.history.pushState({}, '', this.link);
+      window.dispatchEvent(new PopStateEvent('popstate'));
+    }
+  }
+
   render() {
     const hasItems = this.items && this.items.length > 0;
     return html`
-      <a class="item-main" href="${this.link}" @click="${(e) => {
-        if(hasItems) { e.preventDefault(); }}}" aria-expanded="${this.isOpen}">
+      <a class="item-main" href="${this.link}" @click="${this._handleLinkClick}" aria-expanded="${this.isOpen}">
         ${this.title}
         ${hasItems ? html`<span class="arrow"></span>` : ''}
       </a>
