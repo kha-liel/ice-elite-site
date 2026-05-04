@@ -28,9 +28,10 @@ export class EliteNavItem extends DDD {
   static get styles() {
     return css`
       :host {
-        display: flex;
+        display: inline-flex;
         position: relative;
-        flex: 1;
+        //flex: 1;
+        justify-content: center;
       }
 
       .item-main {
@@ -43,7 +44,7 @@ export class EliteNavItem extends DDD {
         font-weight: bold;
         box-sizing: border-box;
         cursor: pointer;
-        padding: 10px 0px;
+        padding: 10px var(--ddd-spacing-2);
         white-space: nowrap;
       }
 
@@ -74,11 +75,12 @@ export class EliteNavItem extends DDD {
         position: absolute; 
         top: 100%;
         left: 0;
+        right: auto;
         background: var(--ddd-theme-default-infoLight);
         width: 100%;
         box-sizing: border-box;
         box-shadow: var(--ddd-box-shadow-md);
-        z-index: 10;
+        z-index: 100;
         flex-direction: column;
         padding: 10px 0;
         border: 1px solid var(--ddd-theme-default-limestone);
@@ -88,12 +90,18 @@ export class EliteNavItem extends DDD {
         display: flex;
       }
 
+      :host([right-aligned]) .sub-menu {
+        left: auto;
+        right: 0;
+      }
+
       .sub-link {
         padding: 8px 20px;
         text-decoration: none;
         font-weight: bold;
         color: var(--ddd-theme-default-wonderPurple);
         font-size: 14px;
+        text-align: left;
       }
 
       .sub-link:hover {

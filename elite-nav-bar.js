@@ -75,15 +75,18 @@ export class EliteNavBar extends DDD {
         display: flex;
         align-items: center;
         justify-content: space-between; //flex-start
-        padding: 0 var(--ddd-spacing-4);
+        padding: 0 var(--ddd-spacing-12);
         height: 100px;
         position: relative;
         box-sizing: border-box;
+        gap: var(--ddd-spacing-8);
       }
 
       elite-dropdown-list {
-        flex: 1;
+        flex: 0 1 auto;
+        margin-left: auto;
         display: block;
+        justify-content: flex-end;
       }
 
       .menu-toggle {
