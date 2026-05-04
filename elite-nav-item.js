@@ -28,27 +28,40 @@ export class EliteNavItem extends DDD {
   static get styles() {
     return css`
       :host {
-        display: block;
+        display: flex;
         position: relative;
+        flex: 1;
       }
 
       .item-main {
         display: flex;
+        flex: 1;
         align-items: center;
-        gap: 8px;
+        justify-content: center;
         text-decoration: none;
-        color: var(--ddd-theme-default-nittanyNavy);
+        color: var(--ddd-theme-default-wonderPurple);
         font-weight: bold;
+        box-sizing: border-box;
         cursor: pointer;
-        padding: 10px 0;
+        padding: 10px 0px;
         white-space: nowrap;
       }
 
+      .item-main:hover {
+        color: var(--ddd-theme-default-athertonViolet);
+      }
+
+      .item-main:hover .arrow {
+        border-top-color: var(--ddd-theme-default-athertonViolet);
+      }
+
       .arrow {
-        width: 0; height: 0; 
+        width: 0; 
+        height: 0; 
+        margin-left: 8px;
         border-left: 5px solid transparent;
         border-right: 5px solid transparent;
-        border-top: 6px solid var(--ddd-theme-default-nittanyNavy);
+        border-top: 6px solid var(--ddd-theme-default-wonderPurple);
         transition: transform 0.3s ease;
       }
 
@@ -62,9 +75,10 @@ export class EliteNavItem extends DDD {
         top: 100%;
         left: 0;
         background: var(--ddd-theme-default-infoLight);
-        min-width: 220px;
+        width: 100%;
+        box-sizing: border-box;
         box-shadow: var(--ddd-box-shadow-md);
-        z-index: 1000;
+        z-index: 10;
         flex-direction: column;
         padding: 10px 0;
         border: 1px solid var(--ddd-theme-default-limestone);
@@ -77,16 +91,44 @@ export class EliteNavItem extends DDD {
       .sub-link {
         padding: 8px 20px;
         text-decoration: none;
-        color: var(--ddd-theme-default-nittanyNavy);
+        font-weight: bold;
+        color: var(--ddd-theme-default-wonderPurple);
         font-size: 14px;
       }
 
+      .sub-link:hover {
+        color: var(--ddd-theme-default-athertonViolet);
+      }
+
       @media (max-width: 1125px) {
+        :host {
+          display: block;
+          width: 100%;
+        }
+
+        .item-main {
+          justify-content: center;
+          padding: 15px 0px;
+        }
+
         .sub-menu {
           position: static;
+          align-items: left;
           box-shadow: none;
           border: none;
-          //padding-left: 20px;
+          padding: 10px 0;
+        }
+
+        .item-main[aria-expanded="true"] + .sub-menu {
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+        }
+
+        .sub-link {
+          text-align: center;
+          width: 100%;
+          padding: 10px 0;
         }
       }
     `;
@@ -96,8 +138,7 @@ export class EliteNavItem extends DDD {
     const hasItems = this.items && this.items.length > 0;
     return html`
       <a class="item-main" href="${this.link}" @click="${(e) => {
-        if(hasItems) { e.preventDefault(); this.isOpen = !this.isOpen; }
-      }}" aria-expanded="${this.isOpen}">
+        if(hasItems) { e.preventDefault(); }}}" aria-expanded="${this.isOpen}">
         ${this.title}
         ${hasItems ? html`<span class="arrow"></span>` : ''}
       </a>

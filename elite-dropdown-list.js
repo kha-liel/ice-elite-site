@@ -12,6 +12,7 @@ export class EliteDropdownList extends DDD {
   constructor() {
     super();
     this.items = [];
+    this.openIndex = -1;
   }
 
   // Lit reactive properties
@@ -19,20 +20,26 @@ export class EliteDropdownList extends DDD {
     return {
       ...super.properties,
       menuItems: { type: Array },
-      menuOpen: { type: Boolean, attribute: "menu-open", reflect: true }
+      menuOpen: { type: Boolean, attribute: "menu-open", reflect: true },
+      openIndex: { type: Number }
     };
   }
 
   // Lit scoped styles
   static get styles() {
     return css`
+      :host {
+        display: block;
+        flex: 1;
+      }
+
       ul {
         list-style: none;
         margin: 0;
         padding: 0;
         display: flex;
         flex-direction: row;
-        gap: var(--ddd-spacing-6);
+        gap: var(--ddd-spacing-4);
       }
 
       @media (max-width: 1125px) {
@@ -57,8 +64,16 @@ export class EliteDropdownList extends DDD {
   render() {
     return html`
       <ul>
-        ${this.menuItems.map(item => html`
-          <elite-nav-item .title="${item.title}" .link="${item.link}" .items="${item.items}"></elite-nav-item>
+        ${this.menuItems.map((item, index) => html`
+          <elite-nav-item 
+            .title="${item.title}" 
+            .link="${item.link}" 
+            .items="${item.items}" 
+            ?isOpen="${this.openIndex === index}"
+            @click="${() => {
+              this.openIndex = this.openIndex === index ? -1 : index;
+              }}">
+          </elite-nav-item>
         `)}
       </ul>
     `;
