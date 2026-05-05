@@ -21,7 +21,7 @@ export class EliteCalendarStrip extends DDD {
 
   async updateSchedule() {
     try {
-      const response = await fetch("/api/schedule.json");
+      const response = await fetch("/public/api/schedule.json");
       const data = await response.json();
       this.events = data.games || [];
     } catch (e) {
@@ -29,11 +29,9 @@ export class EliteCalendarStrip extends DDD {
     }
   }
 
-  // Helper to get the 7 days of the current week
   get weekDays() {
     const days = [];
     const startOfWeek = new Date(this.viewDate);
-    // Find Sunday of the current week
     startOfWeek.setDate(this.viewDate.getDate() - this.viewDate.getDay());
 
     for (let i = 0; i < 7; i++) {

@@ -27,7 +27,7 @@ export class EliteNavBar extends DDD {
 
   async getNavData() {
     try {
-      const response = await fetch('/api/menu.json');
+      const response = await fetch('/public/api/menu.json');
       const data = await response.json();
       this.menuItems = this.buildMenu(data.items);
     } catch (e) {
@@ -74,7 +74,7 @@ export class EliteNavBar extends DDD {
       .navbar {
         display: flex;
         align-items: center;
-        justify-content: space-between; //flex-start
+        justify-content: space-between;
         padding: 0 var(--ddd-spacing-12);
         height: 100px;
         position: relative;
