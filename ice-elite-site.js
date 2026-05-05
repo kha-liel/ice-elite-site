@@ -7,6 +7,7 @@ import { DDD } from "@haxtheweb/d-d-d/d-d-d.js";
 import "./elite-nav-bar";
 import "./elite-page-header.js";
 import "./elite-page-content.js";
+import "./elite-home-page.js':"
 import "./elite-schedule-page.js";
 import "./elite-coaches-page.js";
 import "./elite-dates-page.js";
@@ -86,6 +87,8 @@ export class IceEliteSite extends DDD {
         return html`<elite-coaches-page></elite-coaches-page>`;
       case 'dates':
         return html`<elite-dates-page></elite-dates-page>`;
+      default:
+        return html`<elite-home-page></elite-home-page>`
     }
   }
 

@@ -105,7 +105,7 @@ export class ElitePageFooter extends DDD {
 
           <div class="footer-section">
             <h3>Location</h3>
-            <p>TBD</p>
+            <p>New Rochelle, New York</p>
             <p>Local Rink Arena</p>
           </div>
         </footer>
