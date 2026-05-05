@@ -1,0 +1,64 @@
+{
+    "games": [
+      {
+        "date": "May 15",
+        "time": "6:00 PM",
+        "opponent": "Westchester Warriors",
+        "location": "New Rochelle Ice Rink"
+      },
+      {
+        "date": "May 22",
+        "time": "7:30 PM",
+        "opponent": "Hudson Valley Hawks",
+        "location": "Home (New Rochelle)"
+      },
+      {
+        "date": "May 29",
+        "time": "5:45 PM",
+        "opponent": "Empire State Express",
+        "location": "Yonkers Ice Arena"
+      },
+      {
+        "date": "June 05",
+        "time": "6:15 PM",
+        "opponent": "Garden State Gladiators",
+        "location": "Home (New Rochelle)"
+      },
+      {
+        "date": "June 12",
+        "time": "8:00 PM",
+        "opponent": "Connecticut Coyotes",
+        "location": "Chelsea Piers CT"
+      },
+      {
+        "date": "June 19",
+        "time": "7:00 PM",
+        "opponent": "Island Ice Kings",
+        "location": "Long Island"
+      },
+      {
+        "date": "June 26",
+        "time": "6:30 PM",
+        "opponent": "Metro Maulers",
+        "location": "Home (New Rochelle)"
+      },
+      {
+        "date": "July 03",
+        "time": "5:00 PM",
+        "opponent": "Liberty Legends",
+        "location": "Sky Rink at Chelsea Piers"
+      },
+      {
+        "date": "July 10",
+        "time": "7:45 PM",
+        "opponent": "Jersey Jets",
+        "location": "Home (New Rochelle)"
+      },
+      {
+        "date": "July 17",
+        "time": "6:00 PM",
+        "opponent": "Gotham Guardians",
+        "location": "World Ice Arena"
+      }
+    ]
+  }

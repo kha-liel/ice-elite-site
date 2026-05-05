@@ -1,5 +1,6 @@
 import { html, css } from "lit";
 import { DDD } from "@haxtheweb/d-d-d/d-d-d.js";
+import "./elite-calendar-strip";
 
 export class EliteHomePage extends DDD {
 
@@ -68,9 +69,14 @@ export class EliteHomePage extends DDD {
           Providing premier figure skating and hockey skill development in New Rochelle and the Westchester area. 
           Join us on the ice to take your skills to the next level.
         </p>
+
         <a class="cta-button" @click="${this._navigateToSchedule}">
           View Full Schedule
         </a>
+      </section>
+      <section class="calendar-strip">
+        <h3>This Week's Schedule</h3>
+        <elite-calendar-strip></elite-calendar-strip>
       </section>
     `;
   }
