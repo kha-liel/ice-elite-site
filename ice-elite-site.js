@@ -7,7 +7,7 @@ import { DDD } from "@haxtheweb/d-d-d/d-d-d.js";
 import "./elite-nav-bar";
 import "./elite-page-header.js";
 import "./elite-page-content.js";
-import "/elite-schedule-page.js";
+import "./elite-schedule-page.js";
 import "./elite-coaches-page.js";
 import "./elite-dates-page.js";
 import "./elite-page-footer.js";

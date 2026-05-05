@@ -59,9 +59,11 @@ export class ElitePageContent extends DDD {
   // Lit render the HTML
   render() {
     return html`
-        <div class="contentc-container">
-          <slot></slot>
-        </div>`;
+        <section class="content-container">
+          <div class="content-area">
+            <slot></slot>
+          </div>
+        </section>`;
   }
 
   /**
