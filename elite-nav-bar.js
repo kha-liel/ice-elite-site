@@ -27,8 +27,7 @@ export class EliteNavBar extends DDD {
 
   async getNavData() {
     try {
-      const url = new URL('./api/menu.json', import.meta.ural).href;
-      const response = await fetch(url);
+      const response = await fetch('/api/menu.json');
       const data = await response.json();
       this.menuItems = this.buildMenu(data.items);
     } catch (e) {
