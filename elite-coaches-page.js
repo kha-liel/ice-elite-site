@@ -37,12 +37,21 @@ export class EliteCoachesPage extends DDD {
         box-shadow: var(--ddd-box-shadow-sm);
       }
       .coach-image {
-        width: 300px;
+        width: 100%;
         height: 400px;
-        //border-radius: var(--ddd-radius-circle);
         background-color: var(--ddd-theme-default-limestone);
         margin-bottom: var(--ddd-spacing-4);
+        overflow: hidden;
+        border-radius: var(--ddd-radius-md);
       }
+      .coach-image img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        object-position: center;
+        display: block;
+      }
+    
       h3 {
         color: var(--ddd-theme-default-nittanyNavy);
         margin: var(--ddd-spacing-2) 0;
@@ -61,14 +70,14 @@ export class EliteCoachesPage extends DDD {
         <div class="coach-grid">
           <div class="coach-card">
             <div class="coach-image">
-                <img src="/assets/coach-skating.png" alt="Coach Katie Photo">
+                <img src="${new URL('./lib/assets/coach-skating.png', import.meta.url).href}" alt="Coach Katie Photo">
             </div>
             <h3>Coach Katie</h3>
             <p>Specializing in Figure Skating Basics and Youth Development.</p>
           </div>
           <div class="coach-card">
             <div class="coach-image">
-                <img src="/assets/coach-hockey.png" alt="Coach Matt Photo">
+                <img src="${new URL('./lib/assets/coach-hockey.png', import.meta.url).href}" alt="Coach Matt Photo">
             </div>
             <h3>Coach Matt</h3>
             <p>Advanced Hockey Skills and Power Skating Instructor.</p>
