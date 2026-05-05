@@ -66,7 +66,7 @@ export class EliteNavBar extends DDD {
         background-color: var(--ddd-theme-default-infoLight);
         border-bottom: var(--ddd-border-sm) solid var(--ddd-theme-default-limestone);
         position: sticky;
-        top: 0;
+        top: var(--ddd-spacing-0);
         width: 100%;
         z-index: 1000;
       }
@@ -111,7 +111,7 @@ export class EliteNavBar extends DDD {
         height: 3px;
         background-color: var(--ddd-theme-default-nittanyNavy);
         position: absolute;
-        left: 0;
+        left: var(--ddd-spacing-0);
         transform-origin: right center;
         transition: all 0.3s ease-in-out;
       }
@@ -120,7 +120,7 @@ export class EliteNavBar extends DDD {
       .hamburger-icon::after { bottom: -8px; }
 
       :host([menu-open]) .hamburger-icon {
-        background-color: transparent;
+        background-color: var(--ddd-theme-default-potential10);
         transform: rotate(90deg);
       }
 

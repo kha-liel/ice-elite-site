@@ -41,7 +41,7 @@ export class EliteNavItem extends DDD {
         justify-content: center;
         text-decoration: none;
         color: var(--ddd-theme-default-wonderPurple);
-        font-weight: bold;
+        font-weight: var(--ddd-font-weight-bold);
         box-sizing: border-box;
         cursor: pointer;
         padding: 10px var(--ddd-spacing-2);
@@ -59,9 +59,9 @@ export class EliteNavItem extends DDD {
       .arrow {
         width: 0; 
         height: 0; 
-        margin-left: 8px;
-        border-left: 5px solid transparent;
-        border-right: 5px solid transparent;
+        margin-left: var(--ddd-spacing-2);
+        border-left: var(--ddd-border-lg);
+        border-right: var(--ddd-border-lg);
         border-top: 6px solid var(--ddd-theme-default-wonderPurple);
         transition: transform 0.3s ease;
       }
@@ -74,7 +74,7 @@ export class EliteNavItem extends DDD {
         display: none;
         position: absolute; 
         top: 100%;
-        left: 0;
+        left: var(--ddd-spacing-0);
         right: auto;
         background: var(--ddd-theme-default-infoLight);
         width: 100%;
@@ -93,9 +93,9 @@ export class EliteNavItem extends DDD {
       .sub-link {
         padding: 8px 20px;
         text-decoration: none;
-        font-weight: bold;
+        font-weight: var(--ddd-font-weight-bold);
         color: var(--ddd-theme-default-wonderPurple);
-        font-size: 14px;
+        font-size: var(--ddd-font-weight-4xs);
         text-align: left;
       }
 

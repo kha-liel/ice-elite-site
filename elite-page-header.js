@@ -27,7 +27,7 @@ export class ElitePageHeader extends DDD {
       display: block;
       width: 100%;
       position: sticky;
-      top: 0;
+      top: var(--ddd-spacing-0);
       z-index: 1000;
       background-color: var(--ddd-theme-default-white);
       box-shadow: var(--ddd-box-shadow-sm);
@@ -41,10 +41,10 @@ export class ElitePageHeader extends DDD {
 
     .top-bar {
       background-color: var(--ddd-theme-default-athertonViolet);
-      color: white;
+      color: var(--ddd-theme-default-white);
       padding: var(--ddd-spacing-2) var(--ddd-spacing-4);
       text-align: center;
-      font-weight: bold;
+      font-weight: var(--ddd-font-weight-bold);
     }
     `];
   }

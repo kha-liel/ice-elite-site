@@ -77,7 +77,7 @@ export class EliteCalendarStrip extends DDD {
         border-radius: var(--ddd-radius-sm);
       }
       .day-label {
-        font-weight: bold;
+        font-weight: var(--ddd-font-weight-bold);
         font-size: var(--ddd-font-size-xs);
         color: var(--ddd-theme-default-nittanyNavy);
       }
@@ -85,7 +85,7 @@ export class EliteCalendarStrip extends DDD {
         cursor: pointer;
         padding: var(--ddd-spacing-2) var(--ddd-spacing-4);
         background: var(--ddd-theme-default-wonderPurple);
-        color: white;
+        color: var(--ddd-theme-default-white);
         border: none;
         border-radius: var(--ddd-radius-sm);
       }

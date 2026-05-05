@@ -35,7 +35,6 @@ export class IceEliteSite extends DDD {
 
   _handleRouteChange() {
     const path = window.location.pathname;
-    //this.activePage = path || 'home';
     if (path.endsWith('/schedule')) {
       this.activePage = 'schedule';
     } else if (path.includes('/coaches')) { 

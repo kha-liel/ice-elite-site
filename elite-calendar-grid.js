@@ -48,14 +48,14 @@ export class EliteCalendarGrid extends DDD {
         grid-template-columns: repeat(7, 1fr);
         border: 1px solid var(--ddd-theme-default-limestone);
         background-color: var(--ddd-theme-default-limestone);
-        gap: 1px;
+        gap: var(--ddd-spacing-1);
       }
       .day-label {
         background: var(--ddd-theme-default-nittanyNavy);
-        color: white;
+        color: var(--ddd-theme-default-white);
         text-align: center;
         padding: var(--ddd-spacing-2);
-        font-weight: bold;
+        font-weight: var(--ddd-font-weight-bold);
       }
       .cell {
         min-height: 120px;
@@ -67,7 +67,7 @@ export class EliteCalendarGrid extends DDD {
         cursor: pointer;
         padding: var(--ddd-spacing-2) var(--ddd-spacing-4);
         background: var(--ddd-theme-default-wonderPurple);
-        color: white;
+        color: var(--ddd-theme-default-white);
         border: none;
         border-radius: var(--ddd-radius-sm);
       }

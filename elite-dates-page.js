@@ -28,7 +28,7 @@ export class EliteDatesPage extends DDD {
       }
       th {
         background-color: var(--ddd-theme-default-nittanyNavy);
-        color: white;
+        color: var(--ddd-theme-default-white);
         padding: var(--ddd-spacing-4);
         text-align: left;
       }

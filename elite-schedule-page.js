@@ -20,7 +20,7 @@ static get tag() {
   }
 
   async loadData() {
-    const response = await fetch("/api/schedule.json");
+    const response = await fetch("/public/api/schedule.json");
     const data = await response.json();
     this.events = data.games || [];
   }

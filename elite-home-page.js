@@ -44,10 +44,10 @@ export class EliteHomePage extends DDD {
 
         .cta-button {
           background-color: var(--ddd-theme-default-wonderPurple);
-          color: white;
+          color: var(--ddd-theme-default-white);
           padding: var(--ddd-spacing-4) var(--ddd-spacing-8);
           text-decoration: none;
-          font-weight: bold;
+          font-weight: var(--ddd-font-weight-bold);
           border-radius: var(--ddd-radius-sm);
           transition: background-color 0.3s ease;
           display: inline-block;

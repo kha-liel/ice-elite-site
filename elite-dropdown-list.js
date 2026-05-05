@@ -35,9 +35,9 @@ export class EliteDropdownList extends DDD {
 
       ul {
         list-style: none;
-        margin: 0;
+        margin: var(--ddd-spacing-0);
         margin-right: var(--ddd-spacing-12);
-        padding: 0;
+        padding: var(--ddd-spacing-0);
         display: flex;
         flex-direction: row;
         justify-content: flex-end;
@@ -50,7 +50,7 @@ export class EliteDropdownList extends DDD {
           flex-direction: column;
           position: absolute;
           top: 100%;
-          left: 0;
+          left: var(--ddd-spacing-0);
           width: 100%;
           background: var(--ddd-theme-default-infoLight);
           padding: var(--ddd-spacing-4);
