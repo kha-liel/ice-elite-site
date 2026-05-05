@@ -18,7 +18,7 @@ export class EliteHomePage extends DDD {
         :host {
           display: block;
           padding: var(--ddd-spacing-8);
-          background-color: var(--ddd-theme-default-slateLight);
+          background-color: var(--ddd-theme-default-infoLight);
           min-height: 50vh;
         }
 
@@ -39,7 +39,6 @@ export class EliteHomePage extends DDD {
           color: var(--ddd-theme-default-nittanyNavy);
           max-width: 800px;
           margin: 0 auto var(--ddd-spacing-6) auto;
-          line-height: var(--ddd-spacing-6);
         }
 
         .cta-button {

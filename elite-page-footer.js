@@ -97,15 +97,16 @@ export class ElitePageFooter extends DDD {
 
           <div class="footer-section">
             <h3>Quick Links</h3>
-            <a href="/schedule">Schedule</a>
-            <a href="/classes">Classes</a>
-            <a href="/membership">Membership</a>
-            <a href="/about/contact-us">Contact Us</a>
+            <a href="https://hax.psu.edu">Schedule</a>
+            <a href="https://hax.psu.edu">Classes</a>
+            <a href="https://hax.psu.edu">Membership</a>
+            <a href="https://hax.psu.edu">Contact Us</a>
           </div>
 
           <div class="footer-section">
             <h3>Location</h3>
-            <p>New Rochelle, New York</p>
+            <p> 297 Main Street</p>
+            <p>New Rochelle, New York 10804</p>
             <p>Local Rink Arena</p>
           </div>
         </footer>
